@@ -1,0 +1,26 @@
+<% include header %>
+<div align="center">
+    <div class="text">Simple animated search box</div>
+    <br>
+    <br>
+    <br>
+    <input class="button" placeholder="Search..." />
+<div class="contacts-container">
+
+</div>
+<script>  
+    $(document).ready(function() {  
+        $.ajax({  
+            url: 'http://localhost:8080/contacts',
+            type: 'GET',  
+            dataType: 'json',  
+            success: function(data, textStatus, xhr) {  
+                console.log(data);  
+            },  
+            error: function(xhr, textStatus, errorThrown) {  
+                console.log('Error in Database');  
+            }  
+        });  
+    });  
+</script>
+<% include footer %>
