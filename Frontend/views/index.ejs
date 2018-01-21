@@ -6,12 +6,15 @@
         <input class="button" placeholder="Search in contacts..." />
         <div class="contacts-container"></div>
         <script>  
+        // Get the data from the API end point
             $(document).ready(function () {
                 $.ajax({
                     url: 'http://localhost:8080/contacts',
                     type: 'GET',
                     dataType: 'json',
                     success: function (data, textStatus, xhr) {
+
+                        // Build the HTML snippet for contacts
                         var container = $(".contacts-container");
                         var temp = data._embedded.contacts;
                         for(var i=0; i < temp.length; i++) {

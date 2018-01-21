@@ -12,6 +12,8 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+//This portion of the code is needed to give the http header the cors property
+
 @Component
 public class WebConfig extends OncePerRequestFilter {
     private static final Log LOG = LogFactory.getLog(WebConfig.class);
