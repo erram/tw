@@ -5,3 +5,6 @@ To run the code:
 	``` npm install ```
 * Run
 	``` npm start ```
+
+* Open
+	```http://localhost:8081```	
