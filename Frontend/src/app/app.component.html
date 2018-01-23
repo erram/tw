@@ -1,0 +1,28 @@
+<div class="contact" *ngFor="let contact of Contacts">
+  <div class="image">
+    <img src="https://thumb9.shutterstock.com/display_pic_with_logo/473872/451002748/stock-vector-young-man-face-cartoon-design-vector-illustration-graphic-icon-451002748.jpg">
+  </div>
+  <div class="data">
+    <div class="left">
+      <span class="name">{{contact.firstName}} {{contact.lastName}}</span>
+      <span class="email">
+        <i class="fa fa-envelope"></i>
+        {{contact.email}}
+      </span>
+    </div>
+    <span class="phone">
+      <i class="fa fa-phone"></i>
+      {{contact.phoneNumber}}
+    </span>
+    <span class="company">
+      <i class="fa fa-building"></i>
+      {{contact.company}}
+    </span>
+    <span class="city">
+      <i class="fa fa-map-marker"></i>
+      {{contact.city}}
+    </span>
+    <div class="handler"></div>
+  </div>
+  <div class="clearfix"></div>
+</div>
