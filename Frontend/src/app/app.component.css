@@ -8,6 +8,7 @@
     font-size: 0.9rem;
     text-align: left;
     box-shadow: 1px 1px 1px 0px #333;
+    transition: all .15s ease-in-out;
   }
   .image {
     width: 10%;
