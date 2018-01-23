@@ -13,6 +13,8 @@ export class AppComponent {
 
   public Contact_name;
 
+  private filter;
+
   constructor(private _apiService: APIService) { }
 
   ngOnInit() {
@@ -28,6 +30,10 @@ export class AppComponent {
       // the third argument is a function which runs on completion
       () => console.log('done loading Contacts')
     );
+  }
+
+  setFilter(event) {
+    this.filter = event.target.value;
   }
 
   createContact(name) {

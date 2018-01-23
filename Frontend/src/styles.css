@@ -78,3 +78,9 @@
   .clearfix {
     clear: both;
   }
+
+  
+  .contacts-container {
+    width: 80%;
+    margin: auto;
+  }
