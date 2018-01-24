@@ -10,7 +10,6 @@ export class MyFilterPipe implements PipeTransform {
       return items;
     } else {
       if (typeof filter === 'number') {
-        console.log('pénisz');
         return items.filter(
           contact => contact.phoneNumber.indexOf(filter) !== -1
         );
