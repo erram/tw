@@ -9,7 +9,7 @@ import {Observable} from 'rxjs/Observable';
 })
 export class AppComponent {
 
-  public Contacts;
+  public Books;
 
   public Contact_name;
 
@@ -18,59 +18,59 @@ export class AppComponent {
   constructor(private _apiService: APIService) { }
 
   ngOnInit() {
-    this.getContacts();
+    this.getBooks();
   }
 
-  getContacts() {
-    this._apiService.getContacts().subscribe(
+  getBooks() {
+    this._apiService.getBooks().subscribe(
       // the first argument is a function which runs on success
-      data => { this.Contacts = data['_embedded']['contacts']; },
+      data => {this.Books = data['items']; },
       // the second argument is a function which runs on error
       err => console.error(err),
       // the third argument is a function which runs on completion
-      () => console.log('done loading Contacts')
+      () => console.log(this.Books)//console.log('done loading Books')
     );
   }
 
   setFilter(event) {
     this.filter = event.target.value;
   }
-
-  createContact(name) {
+/*
+  createBook(Book) {
     const Contact = {name: name};
-    this._apiService.createContact(Contact).subscribe(
+    this._apiService.createBook(Book).subscribe(
        data => {
          // refresh the list
-         this.getContacts();
+         this.getBooks();
          return true;
        },
        error => {
-         console.error('Error saving Contact!');
+         console.error('Error saving Book!');
+         return Observable.throw(error);
+       }
+    );
+  }*/
+
+  updateBook(Book) {
+    this._apiService.updateBook(Book).subscribe(
+       data => {
+         // refresh the list
+         this.getBooks();
+         return true;
+       },
+       error => {
+         console.error('Error saving Book!');
          return Observable.throw(error);
        }
     );
   }
 
-  updateContact(Contact) {
-    this._apiService.updateContact(Contact).subscribe(
-       data => {
-         // refresh the list
-         this.getContacts();
-         return true;
-       },
-       error => {
-         console.error('Error saving Contact!');
-         return Observable.throw(error);
-       }
-    );
-  }
-
-  deleteContact(Contact) {
-    if (confirm('Are you sure you want to delete " + Contact.name + "?')) {
-      this._apiService.deleteContact(Contact).subscribe(
+  deleteBook(Book) {
+    if (confirm('Are you sure you want to delete " + Book.name + "?')) {
+      this._apiService.deleteBook(Book).subscribe(
          data => {
            // refresh the list
-           this.getContacts();
+           this.getBooks();
            return true;
          },
          error => {

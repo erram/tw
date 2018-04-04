@@ -1,27 +1,27 @@
-<input class="button" placeholder="Search in contacts..." (keyup)="setFilter($event)" />
-<div class="contact" *ngFor="let contact of Contacts | namefilter:filter">
+<input class="button" placeholder="Search in books..." (keyup)="setFilter($event)" />
+<div class="contact" *ngFor="let book of Books | namefilter:filter">
   <div class="image">
-    <img src="https://thumb9.shutterstock.com/display_pic_with_logo/473872/451002748/stock-vector-young-man-face-cartoon-design-vector-illustration-graphic-icon-451002748.jpg">
+    <img src="{{book.volumeInfo.imageLinks.smallThumbnail}}">
   </div>
   <div class="data">
     <div class="left">
-      <span class="name">{{contact.firstName}} {{contact.lastName}}</span>
+      <span class="name">{{book.volumeInfo.title}}</span>
       <span class="email">
         <i class="fa fa-envelope"></i>
-        {{contact.email}}
+        {{book.volumeInfo.language}}
       </span>
     </div>
     <span class="phone">
       <i class="fa fa-phone"></i>
-      {{contact.phoneNumber}}
+      {{book.volumeInfo.categories[0]}}
     </span>
     <span class="company">
       <i class="fa fa-building"></i>
-      {{contact.company}}
+      {{book.volumeInfo.authors[0]}}
     </span>
     <span class="city">
       <i class="fa fa-map-marker"></i>
-      {{contact.city}}
+      {{book.volumeInfo.averageRating}}
     </span>
     <div class="handler"></div>
   </div>

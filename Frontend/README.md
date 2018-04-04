@@ -5,7 +5,7 @@ To run this application, you need NodeJS and NPM installed on your system (and a
 ```
 npm install
 npm install -g @angular/cli
-ng seve
+ng serve
 ```
 
 This will transpile the TypeScript files, bundle everything using Webpack, and start the Node server. The app will be available at [http://localhost:4200/](http://localhost:4200/)

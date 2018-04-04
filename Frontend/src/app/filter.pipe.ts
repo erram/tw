@@ -9,16 +9,10 @@ export class MyFilterPipe implements PipeTransform {
     if (!items || !filter) {
       return items;
     } else {
-      if (typeof filter === 'number') {
         return items.filter(
-          contact => contact.phoneNumber.indexOf(filter) !== -1
+          book =>
+            (book.volumeInfo.title).indexOf(filter) !== -1
         );
-      } else {
-        return items.filter(
-          contact =>
-            (contact.firstName + contact.lastName).indexOf(filter) !== -1
-        );
-      }
     }
   }
 }
