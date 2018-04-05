@@ -1,29 +1,4 @@
-<input class="button" placeholder="Search in books..." (keyup)="setFilter($event)" />
-<div class="contact" *ngFor="let book of Books | namefilter:filter">
-  <div class="image">
-    <img src="{{book.volumeInfo.imageLinks.smallThumbnail}}">
-  </div>
-  <div class="data">
-    <div class="left">
-      <span class="name">{{book.volumeInfo.title}}</span>
-      <span class="email">
-        <i class="fa fa-envelope"></i>
-        {{book.volumeInfo.language}}
-      </span>
-    </div>
-    <span class="phone">
-      <i class="fa fa-phone"></i>
-      {{book.volumeInfo.categories[0]}}
-    </span>
-    <span class="company">
-      <i class="fa fa-building"></i>
-      {{book.volumeInfo.authors[0]}}
-    </span>
-    <span class="city">
-      <i class="fa fa-map-marker"></i>
-      {{book.volumeInfo.averageRating}}
-    </span>
-    <div class="handler"></div>
-  </div>
-  <div class="clearfix"></div>
+<input class="button" placeholder="Search in books..." (onEnter)="getBooks($event)"/>
+<div class="content">
+    <router-outlet></router-outlet>
 </div>
