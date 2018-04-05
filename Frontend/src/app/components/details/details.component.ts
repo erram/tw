@@ -29,10 +29,6 @@ export class BookDetailsComponent implements OnInit {
     return this.book.volumeInfo.title;
   }
 
-  get subtitle() {
-    return this.book.volumeInfo.subtitle;
-  }
-
   get description() {
     return this.book.volumeInfo.description;
   }

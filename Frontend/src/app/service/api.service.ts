@@ -3,6 +3,14 @@ import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { Book } from '../model/book.model';
+import { HttpHeaders } from '@angular/common/http';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    'Authorization': 'my-auth-token'
+  })
+};
 
 @Injectable()
 export class BookService {
@@ -28,5 +36,9 @@ export class BookService {
 
   getBookById(id: string): Observable<any> {
     return this.http.get(`${this.booksApiUrl}/${id}`)
-  }
+         .map((resp) => {
+           const book = resp.json()
+           return this.replaceHttpsInProps(book);
+         });
+       }
 }

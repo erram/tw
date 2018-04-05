@@ -21,7 +21,8 @@ export class BookDetailPageComponent implements OnInit {
     this.route.params.subscribe((params) => {
       this.bookService.getBookById(params.id)
         .subscribe((book) => {
-          this.book = book;
+          this.book = book
+          console.log(book)
         })
     })
   }
